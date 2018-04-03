@@ -78,6 +78,11 @@ func dashboardResource() *schema.Resource {
 				Description:   "Seconds since epoch to end the visualization",
 				ConflictsWith: []string{"time_range"},
 			},
+			"locked": &schema.Schema{
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Description: "If true, the detector cannot be modified in any way. If false, any user with access to the detector may edit it.",
+			},
 			"chart": &schema.Schema{
 				Type:        schema.TypeSet,
 				Optional:    true,
@@ -289,6 +294,7 @@ func getPayloadDashboard(d *schema.ResourceData) ([]byte, error) {
 		"name":        d.Get("name").(string),
 		"description": d.Get("description").(string),
 		"groupId":     d.Get("dashboard_group").(string),
+		"locked":      d.Get("locked"),
 	}
 
 	all_filters := make(map[string]interface{})

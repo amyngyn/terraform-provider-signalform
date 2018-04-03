@@ -48,6 +48,7 @@ The following arguments are supported in the resource block:
 * `time_range` - (Optional) The time range prior to now to visualize. SignalFx time syntax (e.g. `"-5m"`, `"-1h"`).
 * `start_time` - (Optional) Seconds since epoch. Used for visualization. You must specify time_span_type = `"absolute"` too.
 * `end_time` - (Optional) Seconds since epoch. Used for visualization. You must specify time_span_type = `"absolute"` too.
+* `locked` - (Optional) If true, the detector cannot be modified in any way. If false, any user with access to the detector may edit it.
 * `filter` - (Optional) Filter to apply to the charts when displaying the dashboard.
     * `property` - (Required) A metric time series dimension or property name.
     * `not` - (Optional) Whether this filter should be a not filter. `false` by default.
